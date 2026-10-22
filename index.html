@@ -38,6 +38,14 @@
       href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
       rel="stylesheet"
     />
+    <!-- Apply theme instantly before Vue loads to prevent dark flash -->
+    <script>
+      (function () {
+        var saved = localStorage.getItem('devfin-theme');
+        var isLight = saved !== null ? saved === 'light' : true;
+        if (isLight) document.documentElement.classList.add('light-theme');
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>

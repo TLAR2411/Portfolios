@@ -11,7 +11,10 @@ import FooterSection from "./components/FooterSection.vue";
 // Global Mouse Tracking Logic
 const mouseX = ref(0);
 const mouseY = ref(0);
-const isLightMode = ref(false);
+
+// Read saved preference; default to light for first-time visitors
+const saved = localStorage.getItem("devfin-theme");
+const isLightMode = ref(saved !== null ? saved === "light" : true);
 
 const setTheme = (lightMode) => {
   isLightMode.value = lightMode;
@@ -28,9 +31,8 @@ const handleMouseMove = (event) => {
 
 onMounted(() => {
   window.addEventListener("mousemove", handleMouseMove);
-  // Default to light mode for first-time visitors; remember preference on return
-  const saved = localStorage.getItem("devfin-theme");
-  setTheme(saved !== null ? saved === "light" : true);
+  // Sync DOM class with the initial ref value
+  document.documentElement.classList.toggle("light-theme", isLightMode.value);
 });
 
 onUnmounted(() => {
