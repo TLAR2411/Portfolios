@@ -8,8 +8,8 @@ const app = createApp(App);
 
 const i18n = createI18n({
     legacy: false,
-    locale: 'km', // Default to Khmer first
-    fallbackLocale: 'en', // Fallback to English
+    locale: localStorage.getItem("devfin-lang") || 'en', // Default English for first-time visitors
+    fallbackLocale: 'en',
     messages,
 })
 app.use(i18n)

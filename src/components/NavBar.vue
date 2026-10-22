@@ -20,6 +20,7 @@ const toggleMenu = () => (isMobileMenuOpen.value = !isMobileMenuOpen.value);
 const closeMenu = () => (isMobileMenuOpen.value = false);
 const switchLang = () => {
   locale.value = locale.value === "en" ? "km" : "en";
+  localStorage.setItem("devfin-lang", locale.value);
 };
 const toggleTheme = () => emit("toggle-theme");
 </script>

@@ -28,7 +28,9 @@ const handleMouseMove = (event) => {
 
 onMounted(() => {
   window.addEventListener("mousemove", handleMouseMove);
-  setTheme(localStorage.getItem("devfin-theme") === "light");
+  // Default to light mode for first-time visitors; remember preference on return
+  const saved = localStorage.getItem("devfin-theme");
+  setTheme(saved !== null ? saved === "light" : true);
 });
 
 onUnmounted(() => {
