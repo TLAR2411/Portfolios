@@ -16,7 +16,7 @@ export const messages = {
             badge: 'Open to Work',
             welcome: "Hi, I'm",
             slogan: {
-                part1: 'Junior Backend',
+                part1: 'Junior Web',
                 part2: 'Developer.'
             },
             desc: 'A Web Developer with experience building and maintaining web applications using PHP, Laravel, MySQL, and Vue.js. I enjoy solving problems and developing systems that make daily work easier.',
